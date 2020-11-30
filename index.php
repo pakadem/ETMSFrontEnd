@@ -33,7 +33,7 @@
                         <h2 class="">Employees Time Management System</h2>
                     </div>
                     <div class="page-header clearfix">
-                        <a href="all.php" class="btn btn-success ">View Employees</a>
+                        <a href="employee/all.php" class="btn btn-success ">View Employees</a>
                     </div>
 
                 </div>
