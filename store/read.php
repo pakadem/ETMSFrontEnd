@@ -1,6 +1,6 @@
 <?php
 
-    const BASE_API = 'http://192.168.8.101:4500/employee/';
+    const BASE_API = 'http://192.168.8.101:4500/store/';
                         
     $emp_id = $_GET['id'];
     $item_json = file_get_contents( BASE_API . 'read/' . $emp_id );
@@ -11,7 +11,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>View Record</title>
+    <title>View Store</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
         .wrapper{
@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header">
-                        <h1>View Employee Record</h1>
+                        <h1>View Store Record</h1>
                     </div>
 
                     <div class="col-md-4 pull-left">
@@ -35,11 +35,10 @@
                         </svg>
                     </div>
                     <div class="col-md-8 pull-right">
-                        <h2><?php echo $item_array["empName"] . " " . $item_array["empLastName"]; ?></h2>
-                        <p class="form-control-static h4"><?php echo $item_array["empID"]; ?></p>
+                        <h2><?php echo $item_array["storeName"] . " " . $item_array["storeID"]; ?></h2>
+                        <p class="form-control-static h4"><?php echo $item_array["storeID"]; ?></p>
 
-                        <p class="form-control-static h4"><?php echo 'Phone Number: ' . $item_array["empPhoneNumber"]; ?></p>
-                        <p class="form-control-static h4"><?php echo 'Date of Birth: ' . $item_array["empDOB"]; ?></p>
+                        
 
                     </div>
 
@@ -47,7 +46,7 @@
                         <p></p>
                         <p><br></p>
                         <p><a href="all.php" class="btn btn-primary btn-lg btn-block">Back</a></p>
-                        <p><a href="create.php" class="btn btn-primary btn-lg btn-block">Update Record</a></p>
+                        <p><a href="create.php" class="btn btn-primary btn-lg btn-block">Update Store</a></p>
                      </div>
                 </div>
             </div>        

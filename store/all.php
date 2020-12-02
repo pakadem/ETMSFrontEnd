@@ -30,17 +30,17 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header clearfix">
-                        <h2 class="pull-left">Employees Details</h2>
-                        <a href="create.php" class="btn btn-success pull-right">Add New Employee</a>
+                        <h2 class="pull-left">Store Details</h2>
+                        <a href="create.php" class="btn btn-success pull-right">Add New Store</a>
                     </div>
 
                     
 
                     <?php
 
-                        const BASE_API = 'http://192.168.8.101:4500/employee/';
+                        const BASE_API = 'http://192.168.8.101:4500/store/';
                         
-                        $item_json = file_get_contents( BASE_API . 'all');
+                        $item_json = file_get_contents( BASE_API . 'getAll');
                         $item_array = json_decode($item_json, true);
                     
                         // echo "<pre>";
@@ -49,11 +49,8 @@
                         echo "<table class='table table-bordered table-striped'>";
                             echo "<thead>";
                                 echo "<tr>";
-                                    echo "<th>Employee No.</th>";
-                                    echo "<th>Name</th>";
-                                    echo "<th>Surname</th>";
-                                    echo "<th>Phone Number</th>";
-                                    echo "<th>DOB</th>";
+                                    echo "<th>storeID</th>";
+                                    echo "<th>storeName</th>";
                                     echo "<th>Action</th>";
                                 echo "</tr>";
                             echo "</thead>";
@@ -63,15 +60,12 @@
                             foreach ($item_array as $emp_key => $emp_val) {
                                 
                                 echo "<tr>";
-                                    echo "<td>" . $item_array[$i]['empID'] . "</td>";
-                                    echo "<td>" . $item_array[$i]['empName'] . "</td>";
-                                    echo "<td>" . $item_array[$i]['empLastName'] . "</td>";
-                                    echo "<td>" . $item_array[$i]['empPhoneNumber'] . "</td>";
-                                    echo "<td>" . $item_array[$i]['empDOB'] . "</td>";
+                                    echo "<td>" . $item_array[$i]['storeID'] . "</td>";
+                                    echo "<td>" . $item_array[$i]['storeName'] . "</td>";
                                     echo "<td>";
-                                        echo "<a href='read.php?id=".  $item_array[$i]['empID'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
-                                        echo "<a href='update.php?id=". $item_array[$i]['empID'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
-                                        echo "<a href='delete.php?id=".  $item_array[$i]['empID'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
+                                        echo "<a href='read.php?id=".  $item_array[$i]['storeID'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
+                                        echo "<a href='update.php?id=". $item_array[$i]['storeID'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
+										 echo "<a href='delete.php?id=".  $item_array[$i]['storeID'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
                                     echo "</td>"; 
                                 echo "</tr>";
                                 
