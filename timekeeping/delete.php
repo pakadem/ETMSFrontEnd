@@ -25,7 +25,8 @@
                     </div>
                     <form action="../functions.php" method="post">
                         <div class="alert alert-danger fade in">
-                            <input type="hidden" name="recID" value="<?php echo trim($_GET["id"]); ?>"/>
+                            <input type="hidden" name="id" value="<?php echo trim($_GET["id"]); ?>"/>
+
                             <p>Are you sure you want to delete this record?</p><br>
                             <p>
                                 <input type="submit" value="Yes" class="btn btn-danger">

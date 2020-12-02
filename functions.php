@@ -18,7 +18,7 @@
 
 	}elseif($_POST['type'] == 'delete'){
 
-		delete( $_POST['source'] , $_POST['type'] , $_POST['empID'] );
+		delete( $_POST['source'] , $_POST['type'] , $_POST['id'] );
 		header("Location: " . 'http://localhost/ETMSFrontEnd/' .$_POST['source']. '/all.php'); 
 		exit();
 	}
@@ -51,12 +51,16 @@
 
 	}
 
-	function delete($source, $type, $empID){
+	function delete($source, $type, $id){
 
 		$source = $source;
 		$type = $type;
-		$empID = $empID;
-		$url = BASE_API . $source . '/' . $type . '/' . $empID;
+		$id = $id;
+		$url = BASE_API . $source . '/' . $type . '/' . $id;
+
+		echo "delete ";
+
+	print_r($url);
 		$post_data = $_POST ;
 		$post_data_json = json_encode($post_data);
 

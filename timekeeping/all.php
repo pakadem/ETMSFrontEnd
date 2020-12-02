@@ -57,9 +57,6 @@
                             echo "<tbody>";
 
                             $i = 0;
-
-                            echo "<pre>";
-                            print_r( $item_array);
                             foreach ($item_array as $emp_key => $emp_val) {
                                 
                                 echo "<tr>";
@@ -70,7 +67,6 @@
                                     $emp_json = file_get_contents('http://localhost:8080/employee/read/'. $item_array[$i]['empID']);
                                     $emp_array = json_decode($emp_json, true);
 
-                                    // echo " | ";print_r( $item_array[$i]['empID'] ) ;
 
                                     echo "<td>" . $emp_array['empName'] . ' ' . $emp_array['empLastName'] . "</td>";
                                     echo "<td>";

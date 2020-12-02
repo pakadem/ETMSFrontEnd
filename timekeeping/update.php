@@ -12,7 +12,6 @@ $id = $_GET['id'];
 $item_json = file_get_contents( BASE_API . 'read/' . $id );
 $item_array = json_decode($item_json, true);
 
-print_r( $item_array);
 ?>
  
 <!DOCTYPE html>
@@ -67,7 +66,7 @@ print_r( $item_array);
                             ?>
                           
                         </select>
-
+                        <br>
                        
                         <input type="hidden" name="source" class="form-control" value="Timekeeping">
                         <input type="hidden" name="type" class="form-control" value="update">
