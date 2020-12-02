@@ -1,8 +1,10 @@
 <?php
 
 	
-	
+
 	const BASE_API = 'http://192.168.8.101:4500/';
+
+
 	if($_POST['type'] == 'create' ){
 
 		print_r( $_POST); 
@@ -94,4 +96,9 @@
 	    $result = curl_exec($ch);
 	    $result = json_decode($result);
 	    curl_close($ch);
+<<<<<<< HEAD
 	}
+=======
+	}
+
+>>>>>>> 115c0732c575476413174e0260fcf77e9e38b517
