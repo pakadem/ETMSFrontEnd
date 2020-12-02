@@ -30,12 +30,37 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header clearfix">
-                        <h2 class="">Employees Time Management System</h2>
+                        <h2 class="center">Employees Time Management System</h2>
                     </div>
-                    <div class="page-header clearfix">
-                        <a href="employee/all.php" class="btn btn-success ">View Employees</a>
+                    <div class="col-md-4 clearfix">
+                        <a href="employee/all.php" class="btn btn-success btn-lg btn-block">View Employees</a>
+                        <br>
                     </div>
 
+                    <div class="col-md-4">
+                        <a href="leave/all.php" class="btn btn-success btn-lg btn-block">View Leave</a>
+                        <br>
+                    </div>
+
+                    <div class="col-md-4">
+                        <a href="role/all.php" class="btn btn-success btn-lg btn-block">View Roles</a>
+                        <br>
+                    </div>
+
+                    <div class="col-md-4">
+                        <a href="store/all.php" class="btn btn-success btn-lg btn-block">View Stores</a>
+                        <br>
+                    </div>
+
+                    <div class="col-md-4">
+                        <a href="report/all.php" class="btn btn-success btn-lg btn-block">View Reports</a>
+                        <br>
+                    </div>
+
+                    <div class="col-md-4">
+                        <a href="timekeeping/all.php" class="btn btn-success btn-lg btn-block">View Time Tracking</a>
+                        <br>
+                    </div>
                 </div>
             </div>        
         </div>
