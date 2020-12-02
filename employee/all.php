@@ -38,7 +38,7 @@
 
                     <?php
 
-                        const BASE_API = 'http://localhost:8080/employee/';
+                        const BASE_API = 'http://192.168.8.101:4500/employee/';
                         
                         $item_json = file_get_contents( BASE_API . 'all');
                         $item_array = json_decode($item_json, true);
