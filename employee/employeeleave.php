@@ -38,7 +38,7 @@ $name_err = $surname_err = $phonenumber_err = $dob_err = "";
                          <div class="form-group <?php echo (!empty($dob_err)) ? 'has-error' : ''; ?>">
                             <?php
                                 
-                                $item_json = file_get_contents('http://localhost:8080/employee/all');
+                                $item_json = file_get_contents('http://192.168.8.101:4500/employee/all');
                                 $item_array = json_decode($item_json, true);
                             ?>
                             <label>Employee</label>
@@ -59,7 +59,7 @@ $name_err = $surname_err = $phonenumber_err = $dob_err = "";
                         <div class="form-group <?php echo (!empty($dob_err)) ? 'has-error' : ''; ?>">
                             <?php
                                
-                                $item_json = file_get_contents('http://localhost:8080/role/all');
+                                $item_json = file_get_contents('http://192.168.8.101:4500/role/all');
                                 $item_array = json_decode($item_json, true);
                             ?>
                             <label>Role</label>
