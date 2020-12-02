@@ -34,10 +34,6 @@
                     </div>
                     <div class="page-header clearfix">
                         <a href="employee/all.php" class="btn btn-success ">View Employees</a>
-                    
-                        <a href="role/all.php" class="btn btn-success ">View Roles</a>
-
-                        <a href="leave/all.php" class="btn btn-success ">View Leave</a>
                     </div>
 
                 </div>

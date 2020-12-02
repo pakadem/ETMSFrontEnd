@@ -59,30 +59,6 @@ $name_err = $surname_err = $phonenumber_err = $dob_err = "";
                         <input type="hidden" name="source" class="form-control" value="employee">
                         <input type="hidden" name="type" class="form-control" value="create">
 
-                        <hr>
-
-                        <p>Assign Employee to Role </p>
-
-                        <div class="form-group <?php echo (!empty($dob_err)) ? 'has-error' : ''; ?>">
-                            <?php
-                                const BASE_API = 'http://localhost:8080/role/';
-                         
-                                $item_json = file_get_contents( BASE_API . 'all');
-                                $item_array = json_decode($item_json, true);
-                            ?>
-                            <label>Employee Role</label>
-                            <select name=""  class="form-control" id="sel1">
-                                <?php
-                                     $i = 0;
-                                    foreach ($item_array as $key => $value) {
-                                        
-                                        echo "<option value='". $item_array[$i]['roleID']."'>" . $item_array[$i]['roleDesc'] . "</option>";
-                                        $i++;
-                                    }
-                                ?>
-                              
-                            </select>   
-                        </div>
 
                         <input type="submit" class="btn btn-primary" value="Submit">
                         <a href="all.php" class="btn btn-default">Cancel</a>

@@ -1,7 +1,8 @@
 <?php
 
 	
-	const BASE_API = 'http://localhost:8080/';
+	const BASE_API = 'http://192.168.8.101:4500/';
+
 
 	if($_POST['type'] == 'create' ){
 
@@ -95,3 +96,4 @@
 	    $result = json_decode($result);
 	    curl_close($ch);
 	}
+

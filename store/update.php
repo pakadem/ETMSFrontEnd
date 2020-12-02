@@ -6,7 +6,7 @@
 $name = $surname = $phonenumber = $dob = "";
 $name_err = $surname_err = $phonenumber_err = $dob_err = "";
  
-const BASE_API = 'http://192.168.8.101:4500/employee/';
+const BASE_API = 'http://192.168.8.101:4500/store/';
                         
 $emp_id = $_GET['id'];
 $item_json = file_get_contents( BASE_API . 'read/' . $emp_id );
@@ -33,37 +33,23 @@ $item_array = json_decode($item_json, true);
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header">
-                        <h2>Update Employee No.: <?php echo $item_array["empID"] ?></h2>
+                        <h2>Update Store: <?php echo $item_array["storeID"] ?></h2>
                     </div>
-                    <p>Please fill this form and submit to add employee record to the database.</p>
+                    <p>Please fill this form and submit to add store record to the database.</p>
                     <form action="functions.php" method="post">
                         <div class="form-group <?php echo (!empty($name_err)) ? 'has-error' : ''; ?>">
-                            <label>Name</label>
-                            <input type="text" name="empName" class="form-control" value="<?php echo $item_array["empName"] ?>">
+                            <label>storeName</label>
+                            <input type="text" name="storeName" class="form-control" value="<?php echo $item_array["storeName"] ?>">
                             <span class="help-block"></span>
                         </div>
 
                         <div class="form-group <?php echo (!empty($surname_err)) ? 'has-error' : ''; ?>">
-                            <label>Surname</label>
-                            <input type="text" name="empLastName" class="form-control" value="<?php echo  $item_array["empLastName"] ?>">
+                            <label>StoreID</label>
+                            <input type="text" name="storeID" class="form-control" value="<?php echo  $item_array["storeID"] ?>">
                             <span class="help-block"></span>
                         </div>
                         
-                        <div class="form-group <?php echo (!empty($phonenumber_err)) ? 'has-error' : ''; ?>">
-                            <label>Phone Number</label>
-                            <input type="text" name="empPhoneNumber" class="form-control" value="<?php echo $item_array["empPhoneNumber"] ?>">
-                            <span class="help-block"></span>
-                        </div>
-
-                        <div class="form-group <?php echo (!empty($dob_err)) ? 'has-error' : ''; ?>">
-                            <label>Date of Birth</label>
-                            <input type="text" name="empDOB" class="form-control" value="<?php echo $item_array["empDOB"] ?>">
-                            <span class="help-block"></span>
-                        </div>
-                        <input type="hidden" name="source" class="form-control" value="employee">
-                        <input type="hidden" name="type" class="form-control" value="update">
-
-
+                        
                         <input type="submit" class="btn btn-primary" value="Submit">
                         <a href="all.php" class="btn btn-default">Cancel</a>
                     </form>
