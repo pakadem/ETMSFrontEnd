@@ -1,6 +1,6 @@
 <?php
 
-    const BASE_API = 'http://192.168.8.101:4500/employee/';
+    const BASE_API = 'http://localhost:8080/employee/';
                         
     $emp_id = $_GET['id'];
     $item_json = file_get_contents( BASE_API . 'read/' . $emp_id );
