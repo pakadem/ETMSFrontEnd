@@ -7,17 +7,19 @@
 
 		print_r( $_POST); 
 		$empID = create( $_POST['source'] , $_POST['type'] );
-		header("Location: " . 'http://localhost/ETMSFrontEnd/employee/all.php'); 
+		header("Location: " . 'http://localhost/ETMSFrontEnd/' .$_POST['source']. '/all.php'); 
 		exit();
 
 	}elseif($_POST['type'] == 'update' ){
 
-		update( $_POST['source'] , $_POST['type'] , $_POST['empID'] );
+		update( $_POST['source'] , $_POST['type'] , $_POST['id'] );
+		header("Location: " . 'http://localhost/ETMSFrontEnd/' .$_POST['source']. '/all.php'); 
+		exit();
 
 	}elseif($_POST['type'] == 'delete'){
 
 		delete( $_POST['source'] , $_POST['type'] , $_POST['empID'] );
-		header("Location: " . 'http://localhost/ETMSFrontEnd/employee/all.php'); 
+		header("Location: " . 'http://localhost/ETMSFrontEnd/' .$_POST['source']. '/all.php'); 
 		exit();
 	}
 
@@ -35,12 +37,12 @@
 
 	}
 
-	function update($source, $type, $empID){
+	function update($source, $type, $id){
 
 		$source = $source;
 		$type = $type;
-		$empID = $empID;
-		$url = BASE_API . $source . '/' . $type . '/' . $empID;
+		$id = $id;
+		$url = BASE_API . $source . '/' . $type . '/' . $id;
 
 		$post_data = $_POST ;
 		$post_data_json = json_encode($post_data);
