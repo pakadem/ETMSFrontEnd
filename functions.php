@@ -1,6 +1,5 @@
 <?php
 
-	
 	const BASE_API = 'http://localhost:8080/';
 
 
@@ -114,5 +113,6 @@
 	    $result = curl_exec($ch);
 	    $result = json_decode($result);
 	    curl_close($ch);
+
 	}
 
