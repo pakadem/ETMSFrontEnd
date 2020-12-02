@@ -6,7 +6,7 @@
 $role_id = $role_desc = "";
 $role_id_err = $role_desc_err = "";
  
-const BASE_API = 'http://localhost:8080/role/';
+const BASE_API = 'http://192.168.8.101/role/';
                         
 $id = $_GET['id'];
 $item_json = file_get_contents( BASE_API . 'read/' . $id );

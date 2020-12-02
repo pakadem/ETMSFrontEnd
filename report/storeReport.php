@@ -14,7 +14,7 @@ $name_err = $surname_err = $phonenumber_err = $dob_err = "";
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Employee Role</title>
+    <title>Generate  Store Report</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
         .wrapper{
@@ -29,54 +29,34 @@ $name_err = $surname_err = $phonenumber_err = $dob_err = "";
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header">
-                        <h2>Assign Employee to a Role</h2>
+                        <h2>Generate  Store Report</h2>
                     </div>
                     
-                    <p>Assign Employee to Role </p>
+                    <p>Generate Store Report</p>
                     <form action="../functions.php" method="post">
                       
                          <div class="form-group <?php echo (!empty($dob_err)) ? 'has-error' : ''; ?>">
                             <?php
                                 
-                                $item_json = file_get_contents('http://192.168.8.101:4500/employee/all');
+                                $item_json = file_get_contents('http://192.168.8.101:4500/race/all');
                                 $item_array = json_decode($item_json, true);
                             ?>
-                            <label>Employee</label>
-                            <select name=""  class="form-control" id="sel1">
+                            <label>Stores :</label>
+                            <select name=""  class="form-control" id="">
                                 <?php
                                      $i = 0;
                                     foreach ($item_array as $key => $value) {
                                         
-                                        echo "<option value='". $item_array[$i]['empID']."'>" . $item_array[$i]['empName'] . " " . $item_array[$i]['empLastName'] . "</option>";
-                                        $i++;
+                                        echo "<option value='". $item_array[$i]['storeID']."'>" . $item_array[$i]['storeID'] . "</option>";
+                                        
+										$i++;
                                     }
                                 ?>
                               
                             </select>   
                         </div>
 
-
-                        <div class="form-group <?php echo (!empty($dob_err)) ? 'has-error' : ''; ?>">
-                            <?php
-                               
-                                $item_json = file_get_contents('http://192.168.8.101:4500/role/all');
-                                $item_array = json_decode($item_json, true);
-                            ?>
-                            <label>Role</label>
-                            <select name=""  class="form-control" id="sel1">
-                                <?php
-                                     $i = 0;
-                                    foreach ($item_array as $key => $value) {
-                                        
-                                        echo "<option value='". $item_array[$i]['roleID']."'>" . $item_array[$i]['roleDesc'] . "</option>";
-                                        $i++;
-                                    }
-                                ?>
-                              
-                            </select>   
-                        </div>
-
-                        <input type="hidden" name="source" class="form-control" value="employeerole">
+                        <input type="hidden" name="source" class="form-control" value="employeestore">
                         <input type="hidden" name="type" class="form-control" value="create">
 
                         <input type="submit" class="btn btn-primary" value="Submit">
