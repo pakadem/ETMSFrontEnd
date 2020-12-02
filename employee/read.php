@@ -41,6 +41,17 @@
                         <p class="form-control-static h4"><?php echo 'Phone Number: ' . $item_array["empPhoneNumber"]; ?></p>
                         <p class="form-control-static h4"><?php echo 'Date of Birth: ' . $item_array["empDOB"]; ?></p>
 
+                        <?php
+
+                            $emprole_json = file_get_contents('http://localhost:8080/employeeRole/read/'. $emp_id);
+                            $emprole_array = json_decode($emprole_json, true);
+
+                            $role_json = file_get_contents('http://localhost:8080/role/read/'. $emprole_array["roleID"]);
+                            $role_array = json_decode($role_json, true); 
+                        
+                        ?>
+                        <p class="form-control-static h4"><?php echo 'Employee Role: ' . $role_array["roleDesc"]; ?></p>
+
                     </div>
 
                     <div class="col-md-12"> 
