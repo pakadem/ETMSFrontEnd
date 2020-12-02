@@ -1,6 +1,7 @@
 <?php
 
 	
+
 	const BASE_API = 'http://192.168.8.101:4500/';
 
 
@@ -95,5 +96,6 @@
 	    $result = curl_exec($ch);
 	    $result = json_decode($result);
 	    curl_close($ch);
+
 	}
 
