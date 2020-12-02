@@ -12,6 +12,7 @@ $id = $_GET['id'];
 $item_json = file_get_contents( BASE_API . 'read/' . $id );
 $item_array = json_decode($item_json, true);
 
+print_r( $item_array);
 ?>
  
 <!DOCTYPE html>

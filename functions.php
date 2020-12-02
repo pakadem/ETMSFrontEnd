@@ -87,12 +87,12 @@
 		$ch = curl_init();
 
 		//set the url, number of POST vars, POST data
-		curl_setopt($ch, CURLOPT_URL, $url);
+		// curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-		curl_setopt($ch, CURLOPT_HEADER, TRUE);
-		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+		// curl_setopt($ch, CURLOPT_HEADER, TRUE);
+		// curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data_json);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post_data_json) );
 
 		//So that curl_exec returns the contents of the cURL; rather than echoing it
 		curl_setopt($ch,CURLOPT_RETURNTRANSFER, true); 
