@@ -89,7 +89,7 @@ $name_err = $surname_err = $phonenumber_err = $dob_err = "";
                             </select>   
                         </div>
 
-                        <input type="hidden" name="source" class="form-control" value="employeerole">
+                        <input type="hidden" name="source" class="form-control" value="employee">
                         <input type="hidden" name="type" class="form-control" value="create">
 
                         <input type="submit" class="btn btn-primary" value="Submit">

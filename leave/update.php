@@ -3,8 +3,8 @@
 // require_once "config.php";
  
 // Define variables and initialize with empty values
-$name = $surname = $phonenumber = $dob = "";
-$name_err = $surname_err = $phonenumber_err = $dob_err = "";
+$leave_description = $leave_daysamt = "";
+$leave_description_err = $leave_daysamt_err = "";
  
 const BASE_API = 'http://localhost:8080/leave/';
                         
@@ -49,15 +49,23 @@ $item_array = json_decode($item_json, true);
                         <h2>Update leave Desc.: <?php echo $item_array["leaveID"] ?></h2>
                     </div>
                     <p>Please fill this form and submit to add leave record to the database.</p>
-                    <form action="functions.php" method="post">
+                    <form action="../functions.php" method="post">
                         <div class="form-group <?php echo (!empty($name_err)) ? 'has-error' : ''; ?>">
-                            <label>leave Description</label>
-                            <input type="text" name="leaveDecription" class="form-control" value="<?php echo $item_array["leaveDescription"] ?>">
+                            <label>Leave Description</label>
+                            <input type="text" name="leaveDescription" class="form-control" value="<?php echo $item_array["leaveDescription"] ?>">
                             <span class="help-block"></span>
                        
+                        </div>
 
-					   </div>
+                        <div class="form-group <?php echo (!empty($name_err)) ? 'has-error' : ''; ?>">
+                            <label>Leave Days Amount</label>
+                            <input type="text" name="leaveDaysAmt" class="form-control" value="<?php echo $item_array["leaveDaysAmt"] ?>">
+                            <span class="help-block"></span>
+                       
+                        </div>
 
+                        <input type="hidden" name="id" class="form-control" value="<?php echo $_GET["id"] ?>">
+                        <input type="hidden" name="leaveID" class="form-control" value="<?php echo $_GET["id"] ?>">
                         <input type="hidden" name="source" class="form-control" value="leave">
                         <input type="hidden" name="type" class="form-control" value="update">
 

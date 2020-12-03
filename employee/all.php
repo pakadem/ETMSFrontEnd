@@ -94,12 +94,30 @@
                             echo "</tbody>";                            
                         echo "</table>";
 
+
+
                     } else{
                         echo "<p class='lead'><em>No records were found.</em></p>";
                     }
  
                     ?>
 
+                    <div class="col-md-3">
+                        <a href="employeerole.php" class="btn btn-success btn-block">Assign Employee to Role</a>
+                        <br>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="employeeleave.php" class="btn btn-success btn-block">Log Leave</a>
+                        <br>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="employeeleave.php" class="btn btn-success btn-block">Assign Employee to Store</a>
+                        <br>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="employeeleave.php" class="btn btn-success btn-block">Employee Salary</a>
+                        <br>
+                    </div>
                 </div>
             </div>        
         </div>

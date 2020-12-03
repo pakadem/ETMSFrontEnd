@@ -3,8 +3,8 @@
 // require_once "config.php";
  
 // Define variables and initialize with empty values
-$name = $surname = $phonenumber = $dob = "";
-$name_err = $surname_err = $phonenumber_err = $dob_err = "";
+$start_date = $end_date = "";
+$start_date_err = $end_date_err = "";
  
 
 
@@ -55,7 +55,7 @@ $name_err = $surname_err = $phonenumber_err = $dob_err = "";
                                 $item_array = json_decode($item_json, true);
                             ?>
                             <label>Employee</label>
-                            <select name=""  class="form-control" id="sel1">
+                            <select name="empID"  class="form-control" id="sel1">
                                 <?php
                                      $i = 0;
                                     foreach ($item_array as $key => $value) {
@@ -72,24 +72,36 @@ $name_err = $surname_err = $phonenumber_err = $dob_err = "";
                         <div class="form-group <?php echo (!empty($dob_err)) ? 'has-error' : ''; ?>">
                             <?php
                                
-                                $item_json = file_get_contents('http://localhost:8080/role/all');
+                                $item_json = file_get_contents('http://localhost:8080/leave/all');
                                 $item_array = json_decode($item_json, true);
                             ?>
-                            <label>Role</label>
-                            <select name=""  class="form-control" id="sel1">
+                            <label>Leave</label>
+                            <select name="leaveID"  class="form-control" id="sel1">
                                 <?php
                                      $i = 0;
                                     foreach ($item_array as $key => $value) {
                                         
-                                        echo "<option value='". $item_array[$i]['roleID']."'>" . $item_array[$i]['roleDesc'] . "</option>";
+                                        echo "<option value='". $item_array[$i]['leaveID']."'>" . $item_array[$i]['leaveDescription'] . "</option>";
                                         $i++;
                                     }
                                 ?>
                               
                             </select>   
                         </div>
+                        <div class="form-group <?php echo (!empty($name_err)) ? 'has-error' : ''; ?>">
+                            <label>Leave Start Date</label>
+                            <input type="text" name="startDate" class="form-control" value="<?php echo $start_date; ?>">
+                            <span class="help-block"></span>
+                       
+                        </div>
+                        <div class="form-group <?php echo (!empty($name_err)) ? 'has-error' : ''; ?>">
+                            <label>Leave End Date</label>
+                            <input type="text" name="endDate" class="form-control" value="<?php echo $end_date; ?>">
+                            <span class="help-block"></span>
+                       
+                        </div>
 
-                        <input type="hidden" name="source" class="form-control" value="employeerole">
+                        <input type="hidden" name="source" class="form-control" value="employeeLeave">
                         <input type="hidden" name="type" class="form-control" value="create">
 
                         <input type="submit" class="btn btn-primary" value="Submit">

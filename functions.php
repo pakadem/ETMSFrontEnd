@@ -3,18 +3,26 @@
 	const BASE_API = 'http://localhost:8080/';
 
 
-	if($_POST['type'] == 'create' ){
+	if( ($_POST['type'] == 'create') && ($_POST['source'] == 'employeeLeave') ){
+
+		print_r( $_POST); 
+		$empID = create( $_POST['source'] , $_POST['type'] );
+		header("Location: " . 'http://localhost/ETMSFrontEnd/report/all.php'); 
+		exit();
+
+	}elseif($_POST['type'] == 'create' ){
 
 		print_r( $_POST); 
 		$empID = create( $_POST['source'] , $_POST['type'] );
 		header("Location: " . 'http://localhost/ETMSFrontEnd/' .$_POST['source']. '/all.php'); 
 		exit();
 
-	}elseif($_POST['type'] == 'update' ){
+	}
+	elseif($_POST['type'] == 'update' ){
 
 		update( $_POST['source'] , $_POST['type'] , $_POST['id'] );
-		// header("Location: " . 'http://localhost/ETMSFrontEnd/' .$_POST['source']. '/all.php'); 
-		// exit();
+		header("Location: " . 'http://localhost/ETMSFrontEnd/' .$_POST['source']. '/all.php'); 
+		exit();
 
 	}elseif($_POST['type'] == 'delete'){
 
@@ -28,6 +36,8 @@
 		$source = $source;
 		$type = $type;
 		$url = BASE_API . $source . '/' . $type;
+
+		print_r( $url);
 
 		$post_data = $_POST ;
 		$post_data_json = json_encode($post_data);
@@ -91,6 +101,8 @@
 
 	function post_curl_2($url, $post_data_json){
 		$ch = curl_init();
+
+		//$post_data_json = 
 
 		//set the url, number of POST vars, POST data
 		curl_setopt($ch, CURLOPT_URL, $url);

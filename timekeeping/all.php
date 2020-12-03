@@ -44,7 +44,8 @@
 
                     <div class="page-header clearfix">
                         <h2 class="pull-left">Time Tracing Details</h2>
-                        <a href="create.php" class="btn btn-success pull-right">Log New Time</a>
+                        <a href="#" class="btn btn-success pull-right"  style="margin-left:20px">Calculate Salary</a>
+                        <a href="create.php" class="btn btn-success pull-right" style="margin-left:20px">Log New Time</a>
                     </div>
 
                     
