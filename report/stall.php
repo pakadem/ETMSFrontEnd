@@ -43,17 +43,17 @@
                     </div>
 
                     <div class="page-header clearfix">
-                        <h2 class="pull-left">Employees Details</h2>
-                        <a href="create.php" class="btn btn-success pull-right">Add New Employee</a>
+                        <h2 class="pull-left">Leave Reports</h2>
+                        <a href="../leave/create.php" class="btn btn-success pull-right">Add New leave</a>
                     </div>
 
                     
 
                     <?php
 
-                        const BASE_API = 'http://localhost:8080/employee/';
+                        const BASE_API = 'http://localhost:8080/storeReport/';
                         
-                        $item_json = file_get_contents( BASE_API . 'all');
+                        $item_json = file_get_contents( BASE_API . 'getAll');
                         $item_array = json_decode($item_json, true);
                     
                         // echo "<pre>";
@@ -62,29 +62,37 @@
                         echo "<table class='table table-bordered table-striped'>";
                             echo "<thead>";
                                 echo "<tr>";
-                                    echo "<th>Employee No.</th>";
-                                    echo "<th>Name</th>";
-                                    echo "<th>Surname</th>";
-                                    echo "<th>Phone Number</th>";
-                                    echo "<th>DOB</th>";
-                                    echo "<th>Action</th>";
-                                echo "</tr>";
+                                    echo "<th>Store Report ID.</th>";
+                                    echo "<th>Store Name</th>";
+                                    echo "<th>Employee Name</th>";
+                                    echo "<th>Time Service ID</th>";
+                                    echo "<th>Actions</th>";
+                                    echo "</tr>";
                             echo "</thead>";
                             echo "<tbody>";
 
                             $i = 0;
-                            foreach ($item_array as $emp_key => $emp_val) {
+                            foreach ($item_array as $leave_key => $leave_val) {
                                 
                                 echo "<tr>";
-                                    echo "<td>" . $item_array[$i]['empID'] . "</td>";
-                                    echo "<td>" . $item_array[$i]['empName'] . "</td>";
-                                    echo "<td>" . $item_array[$i]['empLastName'] . "</td>";
-                                    echo "<td>" . $item_array[$i]['empPhoneNumber'] . "</td>";
-                                    echo "<td>" . $item_array[$i]['empDOB'] . "</td>";
+                                    echo "<td>" . $item_array[$i]['leaveReportID'] . "</td>";
+
+                                    $leave_json = file_get_contents( 'http://localhost:8080/leave/read/' . $item_array[$i]['leaveID'] );
+                                    $leave_array = json_decode($leave_json, true);
+                                    echo "<td>" . $leave_array['leaveDescription'] . "</td>";
+
+                                    $emp_json = file_get_contents( 'http://localhost:8080/employee/read/' . $item_array[$i]['empID'] );
+                                    $emp_array = json_decode($emp_json, true);
+                                    echo "<td>". $emp_array['empName'] ." " . $emp_array['empLastName'] . "</td>";
+
+                                    $store_json = file_get_contents( 'http://localhost:8080/store/read/' . $item_array[$i]['storeID'] );
+                                    $store_array = json_decode($store_json, true);
+                                    echo "<td>" . $store_array['storeName'] . "</td>";
+
                                     echo "<td>";
-                                        echo "<a href='read.php?id=".  $item_array[$i]['empID'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
-                                        echo "<a href='update.php?id=". $item_array[$i]['empID'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
-                                        echo "<a href='delete.php?id=".  $item_array[$i]['empID'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
+                                        echo "<a href='read.php?id=".  $item_array[$i]['leaveReportID'] ."' title='View Leave' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
+                                        echo "<a href='update.php?id=". $item_array[$i]['leaveReportID'] ."' title='Update Leave' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
+                                        echo "<a href='delete.php?id=".  $item_array[$i]['leaveReportID'] ."' title='Delete Leave' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
                                     echo "</td>"; 
                                 echo "</tr>";
                                 
@@ -94,30 +102,12 @@
                             echo "</tbody>";                            
                         echo "</table>";
 
-
-
                     } else{
                         echo "<p class='lead'><em>No records were found.</em></p>";
                     }
  
                     ?>
 
-                    <div class="col-md-3">
-                        <a href="employeerole.php" class="btn btn-success btn-block">Assign Employee to Role</a>
-                        <br>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="employeeleave.php" class="btn btn-success btn-block">Log Leave</a>
-                        <br>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="employeestore.php" class="btn btn-success btn-block">Assign Employee to Store</a>
-                        <br>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="employeeleave.php" class="btn btn-success btn-block">Employee Salary</a>
-                        <br>
-                    </div>
                 </div>
             </div>        
         </div>

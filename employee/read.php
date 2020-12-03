@@ -54,6 +54,9 @@
                         <p class="form-control-static h4"><?php echo 'Phone Number: ' . $item_array["empPhoneNumber"]; ?></p>
                         <p class="form-control-static h4"><?php echo 'Date of Birth: ' . $item_array["empDOB"]; ?></p>
 
+
+                        <p class="form-control-static h4"><?php echo 'Employee Role: ' . $item_array["empDOB"]; ?></p>
+
                     </div>
 
                     <div class="col-md-12"> 

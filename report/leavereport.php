@@ -1,8 +1,5 @@
 <?php
-// Include config file
-// require_once "config.php";
- 
-// Define variables and initialize with empty values
+
 $name = $surname = $phonenumber = $dob = "";
 $name_err = $surname_err = $phonenumber_err = $dob_err = "";
  

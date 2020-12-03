@@ -10,6 +10,13 @@
 		header("Location: " . 'http://localhost/ETMSFrontEnd/report/all.php'); 
 		exit();
 
+	}elseif( ($_POST['type'] == 'create') && ($_POST['source'] == 'employeestore') ){
+
+		print_r( $_POST); 
+		$empID = create( $_POST['source'] , $_POST['type'] );
+		header("Location: " . 'http://localhost/ETMSFrontEnd/report/stall.php'); 
+		exit();
+
 	}elseif($_POST['type'] == 'create' ){
 
 		print_r( $_POST); 
